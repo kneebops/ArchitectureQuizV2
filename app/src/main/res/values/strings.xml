@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Architecture Quiz</string>
+    <string name="q3">3. The Schroeder House is located in which Dutch city?</string>
+    <string name="q2">2. What is the name of this iconic house?</string>
+    <string name="q1">1. Who designed Falling Water?</string>
+    <string name="q2_a1">The Robie House</string>
+    <string name="q2_a2">The Glass House</string>
+    <string name="q2_a3">The Farnsworth House</string>
+    <string name="q4">The Villa Savoye is close to which French City?</string>
+    <string name="q5">Check all the names this building is known by</string>
+    <string name="q5_a1">The Gherkin</string>
+    <string name="q5_a2">The Walkie Talkie</string>
+    <string name="q5_a3">30 St. Mary Axe</string>
+    <string name="q3_a1">Rotterdam</string>
+    <string name="q3_a2">Utrecht</string>
+    <string name="q3_a3">The Hague</string>
+    <string name="q6_a1">Case Study House No. 5</string>
+    <string name="q6_a2">Case Study House No. 9</string>
+    <string name="q6_a3">Case Study House No. 8</string>
+    <string name="q6">What is the Eames House also known as?</string>
+    <string name="tally">Congratulations! You have scored \u0020</string>
+    <string name="possible">\u0020 out of 6.</string>
+    <string name="quiz_title">Architecture Quiz</string>
+    <string name="score">Score</string>
+</resources>
