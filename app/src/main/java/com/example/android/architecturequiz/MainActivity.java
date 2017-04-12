@@ -2,6 +2,7 @@ package com.example.android.architecturequiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,27 +14,30 @@ import static android.R.attr.name;
 
 public class MainActivity extends AppCompatActivity {
 
+    int score = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    int question1points = 0;
-    int question2points = 0;
-    int question3points = 0;
-    int question4points = 0;
-    int question5points = 0;
-    int question6points = 0;
-
     // Question 1 Answer for EditText
-    public int questionOne(View View) {
-        EditText answerQuestion1 = (EditText) findViewById(R.id.q1_editText);
-        if (answerQuestion1.getText().toString().equals("Frank Lloyd Wright")) {
-            question1points += 1;
+    public int questionOne(View v) {
+        String q1A = "Frank Lloyd Wright";
+        String q1B = "Lloyd Wright";
+        String q1C = "frank lloyd wright";
+
+
+        EditText answerQuestionOne = (EditText) findViewById(R.id.q1editText);
+        String questionOneAnswer = answerQuestionOne.getText().toString();
+        if (questionOneAnswer.equalsIgnoreCase(q1A) || questionOneAnswer.equalsIgnoreCase(q1B) || questionOneAnswer.equalsIgnoreCase(q1C)) {
+            score += 1;
         }
-        return question1points;
+        Log.v("MainActivity", questionOneAnswer);
+        return score;
     }
+
 
     // Question 2 Answer for Radio
     public int questionTwo(View View) {
@@ -42,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         switch (View.getId()) {
             case R.id.q2a3:
                 if (checked)
-                    question2points += 1;
+                    score += 1;
         }
-        return question2points;
+        return score;
     }
 
     // Question 3 Answer for Radio
@@ -54,20 +58,34 @@ public class MainActivity extends AppCompatActivity {
         switch (View.getId()) {
             case R.id.q3_buttonUtrecht:
                 if (checked)
-                    question3points += 1;
+                    score += 1;
         }
-        return question3points;
+        return score;
     }
 
-    // Question 4 Answer for EditText
-    public int questionFour(View view) {
-        EditText answerQuestion4 = (EditText) findViewById(R.id.q4_editText);
-        if (answerQuestion4.getText().toString().equals("Paris")) {
-            question4points += 1;
-        }
-        return question4points;
-    }
+//    // Question 4 Answer for EditText
+//    public int questionFour(View view) {
+//        EditText answerQuestion4 = (EditText) findViewById(R.id.q4_editText);
+//        if (answerQuestion4.getText().toString().equals("Paris")) {
+//            score += 1;
+//        }
+//        return score;
+//    } //
 
+    public int questionFour(View v) {
+        String q4A = "Paris";
+        String q4B = "paris";
+
+
+        EditText answerQuestionFour = (EditText) findViewById(R.id.q4_editText);
+        String questionFourAnswer = answerQuestionFour.getText().toString();
+        if (questionFourAnswer.equalsIgnoreCase(q4A) || questionFourAnswer.equalsIgnoreCase(q4B)) {
+            score += 1;
+        }
+        Log.v("MainActivity", questionFourAnswer);
+        return score;
+    }
+    //
 
     // Question 5 Multiple Answers for CheckBox
     public int questionFive(View View) {
@@ -79,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkBQ53 = (CheckBox) findViewById(R.id.q5_checkBox3);
         boolean check5_3 = checkBQ53.isChecked();
         if (check5_1 && check5_3) {
-            question5points += 1;
+            score += 1;
         }
-        return question5points;
+        return score;
     }
 
     // Question 6 Answer for Radio
@@ -91,14 +109,14 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.q6_study8:
                 if (checked)
-                    question6points += 1;
+                    score += 1;
         }
-        return question6points;
+        return score;
     }
 
     // Score Total
     public int tally(View View) {
-        Toast.makeText(getApplicationContext(), getString(R.string.tally) + (question1points + question2points + question3points + question4points + question5points + question6points) + getString(R.string.possible), Toast.LENGTH_LONG).show();
-        return (question1points + question2points + question3points + question4points + question5points + question6points);
+        Toast.makeText(getApplicationContext(), getString(R.string.tally) + (score) + getString(R.string.possible), Toast.LENGTH_LONG).show();
+        return (score);
     }
 }

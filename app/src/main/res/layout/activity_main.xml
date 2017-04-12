@@ -24,8 +24,9 @@
             android:text="@string/q1" />
 
         <EditText
-            android:id="@+id/q1_editText"
+            android:id="@+id/q1editText"
             style="@style/TextAnswerStyle"
+            android:inputType="textPersonName"
             android:onClick="questionOne" />
 
         <!--Question 2-->
@@ -103,6 +104,7 @@
         <EditText
             android:id="@+id/q4_editText"
             style="@style/TextAnswerStyle"
+            android:inputType="text"
             android:onClick="questionFour" />
 
 
